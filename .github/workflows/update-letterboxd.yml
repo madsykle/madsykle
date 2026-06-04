@@ -1,0 +1,28 @@
+name: Update Letterboxd Widget
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'   # every 2 hours (film watches don't change by the minute)
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Generate widget
+        env:
+          LETTERBOXD_USER: madsykle
+        run: node update-letterboxd.js
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add letterboxd.svg
+          git diff --staged --quiet || git commit -m "chore: update letterboxd widget"
+          git push
