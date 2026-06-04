@@ -1,4 +1,4 @@
-![](banner.jpg)
+![](17274fee07e3eb58116ef30e2bfe0cdb.gif)
 
 ---
 
