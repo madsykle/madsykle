@@ -5,7 +5,7 @@
 **building**
 
 [dalonsi](https://github.com/madsykle) — letterboxd alternative, wip  
-[tiak](https://github.com/madsykle) — self-hosted media downloader + gallery 
+[tiak](https://github.com/madsykle/tiak) — self-hosted media downloader
 [netflyer](https://github.com/madsykle/netflyer) — minimal streaming
 
 ---
