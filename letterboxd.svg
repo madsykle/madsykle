@@ -1,0 +1,24 @@
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <clipPath id="posterClip"><rect width="134" height="200"/></clipPath>
+  <linearGradient id="fade2" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#07080e"/>
+    <stop offset="100%" stop-color="#07080e" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<rect width="800" height="200" fill="#07080e"/>
+<rect x="0" y="0" width="134" height="200" fill="#090b14"/>
+       <text x="67" y="108" text-anchor="middle" font-family="monospace" font-size="26" fill="#111827">▭</text>
+<rect x="68" y="0" width="100" height="200" fill="url(#fade2)"/>
+<line x1="158" y1="28" x2="158" y2="172" stroke="#12141f" stroke-width="1"/>
+<text x="178" y="37" font-family="'Courier New',monospace" font-size="8" fill="#1a1f2a" letter-spacing="2.5">RECENTLY WATCHED</text>
+<text x="176" y="86" font-family="'Courier New',monospace" font-size="23" font-weight="bold" fill="#dde1ed" letter-spacing="0.2">All About Lily Chou-Chou</text>
+<text x="178" y="108" font-family="'Courier New',monospace" font-size="12" fill="#1e2030">2001</text>
+<text x="178" y="138" font-family="'Courier New',monospace" font-size="16" fill="#1e3050" letter-spacing="2">★★★★★</text>
+<g fill="#050609">
+  <rect x="6" y="16" width="8" height="10" rx="1"/><rect x="6" y="52" width="8" height="10" rx="1"/><rect x="6" y="88" width="8" height="10" rx="1"/><rect x="6" y="124" width="8" height="10" rx="1"/><rect x="6" y="160" width="8" height="10" rx="1"/>
+  <rect x="786" y="16" width="8" height="10" rx="1"/><rect x="786" y="52" width="8" height="10" rx="1"/><rect x="786" y="88" width="8" height="10" rx="1"/><rect x="786" y="124" width="8" height="10" rx="1"/><rect x="786" y="160" width="8" height="10" rx="1"/>
+</g>
+<text x="774" y="187" text-anchor="end" font-family="'Courier New',monospace" font-size="7.5" fill="#0f101a" letter-spacing="2">LETTERBOXD</text>
+<rect width="800" height="200" fill="none" stroke="#0d0e18" stroke-width="1"/>
+</svg>
