@@ -1,0 +1,33 @@
+name: Update Winamp Widget
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # every 5 min (GitHub may batch to ~10min)
+  workflow_dispatch:         # manual trigger from Actions tab
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate widget
+        env:
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_USER: ${{ secrets.LASTFM_USER }}
+        run: node update-winamp.js
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add winamp.svg
+          git diff --staged --quiet || git commit -m "chore: update winamp widget"
+          git push
