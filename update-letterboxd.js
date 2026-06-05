@@ -40,7 +40,6 @@ function parseRSS(xml) {
   const item = itemMatch[1];
 
   const titleRaw = (item.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/) || item.match(/<title>([\s\S]*?)<\/title>/))?.[1] || '';
-  // Format: "Film Title, ★★★★½" or "Film Title"
   const commaIdx = titleRaw.lastIndexOf(', ');
   let filmTitle, rating;
   if (commaIdx !== -1 && /[★½]/.test(titleRaw.slice(commaIdx))) {
@@ -51,11 +50,9 @@ function parseRSS(xml) {
     rating    = '';
   }
 
-  // Year from film link or title — Letterboxd RSS sometimes has year in description
   const yearMatch = item.match(/(\d{4})<\/p>/) || item.match(/Watched in (\d{4})/);
   const year = yearMatch?.[1] || '';
 
-  // Poster from description img
   const descRaw = (item.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/) || [])[1] || '';
   const imgMatch = descRaw.match(/<img src="([^"]+)"/);
   const posterUrl = imgMatch?.[1] || '';
@@ -64,37 +61,31 @@ function parseRSS(xml) {
 }
 
 function generateSVG({ filmTitle, rating, year, imageBase64 }) {
-  const title = esc(trunc(filmTitle || 'unknown', 36));
-  const stars = rating || '';
+  const title = esc(trunc(filmTitle || 'untitled', 34));
+  const stars = esc(rating || '');
   const yr    = year ? esc(String(year)) : '';
 
   const art = imageBase64
-    ? `<image href="${imageBase64}" x="0" y="0" width="134" height="200" preserveAspectRatio="xMidYMid slice" clip-path="url(#posterClip)"/>`
-    : `<rect x="0" y="0" width="134" height="200" fill="#090b14"/>
-       <text x="67" y="108" text-anchor="middle" font-family="monospace" font-size="26" fill="#111827">▭</text>`;
+    ? `<image href="${imageBase64}" x="0" y="0" width="134" height="200" preserveAspectRatio="xMidYMid slice" clip-path="url(#pc)"/>`
+    : `<rect x="0" y="0" width="134" height="200" fill="#0a0b14"/>
+       <text x="67" y="107" text-anchor="middle" font-family="Georgia,serif" font-size="28" fill="#151722">▭</text>`;
 
   return `<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <clipPath id="posterClip"><rect width="134" height="200"/></clipPath>
-  <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#07080e"/>
-    <stop offset="100%" stop-color="#07080e" stop-opacity="0"/>
-  </linearGradient>
-</defs>
-<rect width="800" height="200" fill="#07080e"/>
+<defs><clipPath id="pc"><rect width="134" height="200"/></clipPath></defs>
+<rect width="800" height="200" fill="#0b0c15"/>
 ${art}
-<rect x="68" y="0" width="100" height="200" fill="url(#fade)"/>
-<line x1="158" y1="28" x2="158" y2="172" stroke="#12141f" stroke-width="1"/>
-<text x="178" y="37" font-family="'Courier New',monospace" font-size="8" fill="#1a1f2a" letter-spacing="2.5">RECENTLY WATCHED</text>
-<text x="176" y="86" font-family="'Courier New',monospace" font-size="23" font-weight="bold" fill="#dde1ed" letter-spacing="0.2">${title}</text>
-${yr ? `<text x="178" y="108" font-family="'Courier New',monospace" font-size="12" fill="#1e2030">${yr}</text>` : ''}
-<text x="178" y="${yr ? '138' : '128'}" font-family="'Courier New',monospace" font-size="16" fill="#1e3050" letter-spacing="2">${stars}</text>
-<g fill="#050609">
-  ${[16,52,88,124,160].map(y=>`<rect x="6" y="${y}" width="8" height="10" rx="1"/>`).join('')}
-  ${[16,52,88,124,160].map(y=>`<rect x="786" y="${y}" width="8" height="10" rx="1"/>`).join('')}
+<rect x="134" y="0" width="666" height="200" fill="#0b0c15"/>
+<line x1="134" y1="0" x2="134" y2="200" stroke="#1c1e2e" stroke-width="1"/>
+<text x="154" y="33" font-family="'Courier New',monospace" font-size="8" fill="#374151" letter-spacing="3">RECENTLY WATCHED</text>
+<text x="152" y="88" font-family="Georgia,'Times New Roman',serif" font-size="26" font-weight="bold" fill="#e8ecf4">${title}</text>
+${yr ? `<text x="154" y="112" font-family="'Courier New',monospace" font-size="11" fill="#374151">${yr}</text>` : ''}
+<text x="154" y="${yr ? '146' : '134'}" font-family="Georgia,serif" font-size="17" fill="#d97706" letter-spacing="2">${stars}</text>
+<g fill="#070810">
+  ${[14,50,86,122,158,176].map(y=>`<rect x="4" y="${y}" width="7" height="10" rx="1.5"/>`).join('')}
+  ${[14,50,86,122,158,176].map(y=>`<rect x="789" y="${y}" width="7" height="10" rx="1.5"/>`).join('')}
 </g>
-<text x="774" y="187" text-anchor="end" font-family="'Courier New',monospace" font-size="7.5" fill="#0f101a" letter-spacing="2">LETTERBOXD</text>
-<rect width="800" height="200" fill="none" stroke="#0d0e18" stroke-width="1"/>
+<text x="772" y="188" text-anchor="end" font-family="'Courier New',monospace" font-size="7" fill="#161824" letter-spacing="2.5">LETTERBOXD</text>
+<rect width="800" height="200" fill="none" stroke="#1a1c2c" stroke-width="1"/>
 </svg>`;
 }
 
