@@ -5,13 +5,13 @@
        <text x="81" y="107" text-anchor="middle" font-family="Georgia,serif" font-size="32" fill="#151722">♫</text>
 <rect x="162" y="0" width="638" height="200" fill="#0b0c15"/>
 <line x1="162" y1="0" x2="162" y2="200" stroke="#1c1e2e" stroke-width="1"/>
-<circle cx="182" cy="30" r="3.5" fill="#1f2937"/>
-<text x="194" y="33.5" font-family="'Courier New',monospace" font-size="8" fill="#374151" letter-spacing="3">LAST PLAYED</text>
-<text x="180" y="84" font-family="Georgia,'Times New Roman',serif" font-size="26" font-weight="bold" fill="#e8ecf4">Javeda Zindagi</text>
-<text x="182" y="108" font-family="'Courier New',monospace" font-size="12" fill="#4b5563">Kshitij &amp; Shilpa Rao</text>
+<circle cx="182" cy="30" r="3.5" fill="#22c55e"/>
+<text x="194" y="33.5" font-family="'Courier New',monospace" font-size="8" fill="#374151" letter-spacing="3">NOW PLAYING</text>
+<text x="180" y="84" font-family="Georgia,'Times New Roman',serif" font-size="26" font-weight="bold" fill="#e8ecf4">Jeene Laga Hoon</text>
+<text x="182" y="108" font-family="'Courier New',monospace" font-size="12" fill="#4b5563">Atif Aslam &amp; Shreya Ghoshal</text>
 <rect x="180" y="136" width="596" height="1.5" fill="#1a1d2e" rx="1"/>
-<rect x="180" y="136" width="0" height="1.5" fill="#2563eb" rx="1" opacity="0.9"/>
-
+<rect x="180" y="136" width="420" height="1.5" fill="#2563eb" rx="1" opacity="0.9"/>
+<circle cx="600" cy="136.8" r="3.5" fill="#3b82f6"/>
 <text x="182" y="166" font-family="'Courier New',monospace" font-size="10" fill="#1f2937" letter-spacing="8">⏮  ⏪  ▶  ⏸  ⏭</text>
 <text x="772" y="188" text-anchor="end" font-family="'Courier New',monospace" font-size="7" fill="#161824" letter-spacing="4">WINAMP</text>
 <rect width="800" height="200" fill="none" stroke="#1a1c2c" stroke-width="1"/>
