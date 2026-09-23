@@ -7,8 +7,8 @@
 <line x1="162" y1="0" x2="162" y2="200" stroke="#1c1e2e" stroke-width="1"/>
 <circle cx="182" cy="30" r="3.5" fill="#1f2937"/>
 <text x="194" y="33.5" font-family="'Courier New',monospace" font-size="8" fill="#374151" letter-spacing="3">LAST PLAYED</text>
-<text x="180" y="84" font-family="Georgia,'Times New Roman',serif" font-size="26" font-weight="bold" fill="#e8ecf4">M.</text>
-<text x="182" y="108" font-family="'Courier New',monospace" font-size="12" fill="#4b5563">Anıl Emre Daldal</text>
+<text x="180" y="84" font-family="Georgia,'Times New Roman',serif" font-size="26" font-weight="bold" fill="#e8ecf4">Javeda Zindagi</text>
+<text x="182" y="108" font-family="'Courier New',monospace" font-size="12" fill="#4b5563">Kshitij</text>
 <rect x="180" y="136" width="596" height="1.5" fill="#1a1d2e" rx="1"/>
 <rect x="180" y="136" width="0" height="1.5" fill="#2563eb" rx="1" opacity="0.9"/>
 
